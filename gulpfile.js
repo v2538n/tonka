@@ -49,6 +49,7 @@ function browsersync() {
 	browserSync.init({
 		server: { baseDir: baseDir + '/' },
 		notify: false,
+		port: 7000,
 		online: online
 	})
 }

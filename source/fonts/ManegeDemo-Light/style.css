@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Manege';
+    src: local('Manege Light'), local('Manege-Light'),
+        url('ManegeDemo-Light.woff2') format('woff2'),
+        url('ManegeDemo-Light.woff') format('woff'),
+        url('ManegeDemo-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }

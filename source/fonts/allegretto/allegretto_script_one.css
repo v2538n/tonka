@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Allegretto Script One';
+	src: url('../fonts/allegretto_script_one.eot'); /* IE 9 Compatibility Mode */
+	src: url('../fonts/allegretto_script_one.eot?#iefix') format('embedded-opentype'), /* IE < 9 */
+		url('../fonts/allegretto_script_one.woff2') format('woff2'), /* Super Modern Browsers */
+		url('../fonts/allegretto_script_one.woff') format('woff'), /* Firefox >= 3.6, any other modern browser */
+		url('../fonts/allegretto_script_one.ttf') format('truetype'), /* Safari, Android, iOS */
+		url('../fonts/allegretto_script_one.svg#allegretto_script_one') format('svg'); /* Chrome < 4, Legacy iOS */
+}
+
+@font-face {
+    font-family: 'Cera Pro';
+    src: local('Cera Pro Light'), local('Cera-Pro-Light'),
+        url('CeraPro-Light.woff2') format('woff2'),
+        url('CeraPro-Light.woff') format('woff'),
+        url('CeraPro-Light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+  }

@@ -1,4 +1,4 @@
-@mixin font($fname, $fstyle, $fweight, $furl) {
+/*@mixin font($fname, $fstyle, $fweight, $furl) {
 	@font-face {
 		font-family: $fname;
 		font-style: $fstyle;
@@ -8,7 +8,7 @@
 	}
 }
 
-@include font('damion_rg', normal, 400, '../fonts/damion/damion-regular-webfont.woff2');
+@include font('Roboto', normal, 400, '../fonts/roboto/roboto_regular.woff2');*/
 
 
 *, *:before, *:after {
@@ -25,4 +25,13 @@ html, body {
 	width: 100%;
 	height: 100%;
 	position: relative;
+	font-family: 'Roboto';
+}
+
+a {
+	text-decoration: none;
+}
+
+ul {
+	list-style: none;
 }
