@@ -12,6 +12,12 @@
 		});
 
 
+		$('.login-close').click(function(){
+			$('.user').toggleClass('active');
+			$('.login').toggleClass('active');
+			$('body').toggleClass('lock');
+		});
+
 	/* --- input placeholder --- */
 
 		function inputValue(form){

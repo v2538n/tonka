@@ -27,6 +27,7 @@ body.lock {
 .container {
 
 	position: relative;
+	height: 100%;
 
 	margin: 0 auto;
 
@@ -49,19 +50,20 @@ body.lock {
 .header {
 
 	max-width: 1920px;
+	height: 690px;
 	position: relative;
-
-	height: 100vh;
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
+	transition: background .3s;
 
 	@media screen and (max-width: 375px) {
+		height: 508px;
 		background-image: url('../images/dest/mobile/header.jpg');
 	}
 
 	@media screen and (min-width: 376px) and (max-width: 1125px) {
-		background-image: url('../images/dest/mobile_extend/header.jpg');
+		background-image: url('../images/dest/1280/header.jpg');
 	}
 
 	@media screen and (min-width: 1126px) and (max-width: 1359px) {
@@ -73,18 +75,35 @@ body.lock {
 	}
 
 	
-
-
 	&__top-line {
 		display: flex;
 		align-items: center;
 		width: 100%;
-		height: 55px;
 		padding: 14px 20px;
 		/*padding: 14px 12px;*/
 		z-index: 99;
 
-		@media screen and (max-width: 1126px) {
+		@media screen and (min-width: 769px) {
+			padding-top: 65px;
+		}
+
+		/*@media screen and (min-width: 1126px) {
+			justify-content: flex-end;
+		}*/
+
+		@media screen and (min-width: 769px) {
+			justify-content: flex-end;
+		}
+
+		/*@media screen and (max-width: 1125px) {
+			position: fixed;
+			top: 0;
+			left: 0;
+			background: #fff;
+		}*/
+
+		@media screen and (max-width: 768px) {
+			height: 55px;
 			position: fixed;
 			top: 0;
 			left: 0;
@@ -98,10 +117,85 @@ body.lock {
 
 	&__bottom-line {
 
-		@media screen and (max-width: 1126px) {
+		display: flex;
+		justify-content: space-between;
+		position: absolute;
+		bottom: 170px;
+		left: 0;
+		width: 100%;
+		height: 40px;
+
+		@media screen and (max-width: 1125px) {
 			display: none;
 		}
+
+		.bottom-line__button {
+			font-weight: 700;
+			font-size: 11px;
+			line-height: 14px;
+			text-transform: uppercase;
+			color: #fff;
+			padding: 20px;
+			border: 2px solid #fff;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
+
+		.bottom-line__text {
+			font-weight: 700;
+			font-size: 15px;
+			line-height: 30px;
+			color: #fff;
+		}
+	} 
+
+}
+
+.logo {
+	width: 90px;
+	height: 90px;
+	display: block;
+	border-radius: 50%;
+	background: url('../images/dest/logo.svg') no-repeat center;
+	position: absolute;
+	transition: .3s;
+
+
+	/*@media screen and (min-width: 1126px) {
+		top: 55px;
+		left: 0;
+	}*/
+
+	@media screen and (max-width: 768px) {
+		top: 100px;
+		left: 50%;
+		margin-left: -42px;
 	}
+
+	@media screen and (min-width: 769px) {
+		top: 48px;
+	}
+
+	@media screen and (min-width: 769px) and (max-width: 1160px) {
+		left: 20px;
+	}
+
+	@media screen and (min-width: 1161px) {
+		left: 0px;
+	}
+
+
+
+	/*@media screen and (min-width: 769px) {
+		top: 55px;
+		left: 0;
+	}*/
+
+	/*@media screen and (min-width: 1360px) {
+		top: 48px;
+		left: 0;
+	}*/
 
 }
 
@@ -109,11 +203,17 @@ body.lock {
 	display: flex;
 	height: 100%;
 
-	@media screen and (max-width: 1279px) {
+	/*@media screen and (max-width: 1279px) {
 		height: 100%;
 		flex: 1;
 		padding: 0 18px;
-		/*padding: 0 8px;*/
+		justify-content: space-around;
+	}*/
+
+	@media screen and (max-width: 768px) {
+		height: 100%;
+		flex: 1;
+		padding: 0 18px;
 		justify-content: space-around;
 	}
 
@@ -138,15 +238,12 @@ body.lock {
 			font-size: 10px;
 		}
 
-		@media screen and (max-width: 1279px) {
+		@media screen and (max-width: 768px) {
 			height: 100%;
 		}
 
-		@media screen and (min-width: 1280px) {
-			padding: 20px 8px;
-		}
-
-		@media screen and (min-width: 1126px) {
+		@media screen and (min-width: 769px) {
+			padding: 0 8px;
 			color: #fff;
 		}
 	}
@@ -166,11 +263,11 @@ body.lock {
 		border: 1px solid transparent;
 	}
 
-	@media screen and (min-width: 1126px) {
+	@media screen and (min-width: 769px) {
 		background-color: #FFEEF5;
 	}
 
-	@media screen and (max-width: 1126px) {
+	@media screen and (max-width: 768px) {
 		order: -1;
 	}
 
@@ -195,26 +292,6 @@ body.lock {
 
 }
 
-
-.login {
-
-	width: 100%;
-	position: absolute;
-	top: -100vh;
-	left: 0;
-	background: #FFEEF5;
-	transition: .5s;
-
-	@media screen and (max-width: 1126px) {
-		height: 100vh;
-
-	}
-
-	&.active {
-		top: 55px;
-	}
-}
-
 .basket {
 	display: flex;
 	justify-content: center;
@@ -237,37 +314,114 @@ body.lock {
 	}
 }
 
-.logo {
-	width: 90px;
-	height: 90px;
-	display: block;
-	border-radius: 50%;
-	background: url('../images/dest/logo.svg') no-repeat center;
-	position: absolute;
-
-	@media screen and (max-width: 1126px) {
-		position: absolute;
-		top: 100px;
-		left: 50%;
-		margin-left: -42px;
+.user, .basket {
+	@media screen and (min-width: 768px) {
+		margin: 0 6px;
 	}
-
-	@media screen and (min-width: 1126px) {
-		top: 55px;
-		left: 0;
-	}
-
-	@media screen and (min-width: 1360px) {
-		top: 48px;
-		left: 0;
-	}
-
 }
 
+.order-price {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 25px;
+	color: #fff;
+
+	@media screen and (max-width: 1360px){
+		display: none;
+	}
+} 
+
 .login {
+
+	width: 100%;
+	height: 100vh;
+	position: absolute;
+	top: -100vh;
+	left: 0;
+	background: #FFEEF5;
+	transition: .5s;
+
+	&-inner {
+		width: 100%;
+		margin: 0 auto;
+		position: absolute;
+		height: 100vh;
+	}
+
+	&-close {
+		position: absolute;
+		width: 40px;
+		height: 40px;
+		top: 70px;
+		right: 40px;
+		cursor: pointer;
+		display: none;
+
+		@media screen and (min-width: 769px) {
+			display: block;
+		}
+
+		&::before,
+		&::after {
+			position: absolute;
+			top: 20px;
+			left: 0;
+			content: '';
+			width: 40px;
+			height: 1px;
+			background: #252A3A;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			transform: rotate(-45deg);
+		}
+	}
+
+	
+	&.active {
+		top: 55px;
+
+		@media screen and (min-width: 767px) {
+			top: 0;
+			padding-top: 55px;
+		}
+
+		.login-inner {
+			top: 0;
+
+			@media screen and (min-width: 767px) {
+				padding-top: 55px;
+			}
+
+			@media screen and (min-width: 769px) {
+				width: 768px;
+				left: 50%;
+				margin-left: -384px;
+			}
+		}
+	}
+
 	&-logo {
-		top: 45px;
+		position: absolute;
+		top: 0;
+		left: 50%;
+		margin-left: -45px;
 		background: url('../images/dest/login_logo.svg') no-repeat center;
+
+		@media screen and (max-width: 768px) {
+			top: 45px;
+		}
+
+		@media screen and (min-width: 769px) {
+			top: 45px;
+			left: 40px;
+			margin-left: 0;
+		}
 	}
 
 	&-header {
@@ -285,12 +439,15 @@ body.lock {
 		display: flex;
 		justify-content: center;
 		flex-wrap: wrap;
+		max-width: 300px;
+		margin: 0 auto;
 
 		&__item {
 			width: 250px;
 			height: 38px;
 			padding: 10px;
 			margin-bottom: 7px;
+			display: block;
 			border: 2px solid transparent;
 
 			font-weight: 300;
@@ -305,6 +462,7 @@ body.lock {
 			&:nth-child(2) {
 				margin-bottom: 10px;
 			}
+
 		}
 
 		&__button {
@@ -388,7 +546,7 @@ body.lock {
 			text-decoration: underline;
 		}
 	}
-}
+} /* end login */
 
 
 /*
