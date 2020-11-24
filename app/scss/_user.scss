@@ -1,0 +1,42 @@
+.user {
+	position: relative;
+	display: block;
+	width: 27px;
+	height: 27px;
+	border: 1px solid #FFEEF5;
+	border-radius: 50%;
+	background: url('../images/dest/icons/user.svg') no-repeat 6px 5px;
+
+	&.active {
+		background: transparent;
+		border: 1px solid transparent;
+	}
+
+	@media screen and (min-width: 769px) {
+		background-color: #FFEEF5;
+	}
+
+	@media screen and (max-width: 768px) {
+		order: -1;
+	}
+
+	&.active::before,
+	&.active::after {
+		position: absolute;
+		top: 12px;
+		left: 3px;
+		content: '';
+		width: 20px;
+		height: 1px;
+		background: #252A3A;
+	}
+
+	&::before {
+		transform: rotate(45deg);
+	}
+
+	&::after {
+		transform: rotate(-45deg);
+	}
+
+}

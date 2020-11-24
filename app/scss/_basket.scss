@@ -1,0 +1,39 @@
+.basket {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 27px;
+	height: 27px;
+	border: 1px solid #FFEEF5;
+	border-radius: 50%;
+	background-color: #FFEEF5;
+
+	&__item {
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 25px;
+		color: #000;
+	}
+
+	@media screen and (max-width: 1126px) {
+		order: 2;
+	}
+}
+
+.user, .basket {
+	@media screen and (min-width: 768px) {
+		margin: 0 6px;
+	}
+}
+
+.order-price {
+	font-family: 'Roboto';
+	font-weight: 400;
+	font-size: 11px;
+	line-height: 25px;
+	color: #fff;
+
+	@media screen and (max-width: 1360px){
+		display: none;
+	}
+} 
