@@ -36,11 +36,11 @@ body.lock {
 	}
 
 	@media screen and (min-width: 1126px) {
-		width: 1126px;
+		max-width: 1126px;
 	}
 
 	@media screen and (min-width: 1360px) {
-		width: 1360px;
+		max-width: 1360px;
 	}
 }
 
@@ -52,3 +52,4 @@ body.lock {
 @import "user";
 @import "basket";
 @import "login";
+@import "category";

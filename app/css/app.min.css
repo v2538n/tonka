@@ -121,7 +121,8 @@ html, body {
   width: 100%;
   height: 100%;
   position: relative;
-  font-family: 'Roboto'; }
+  font-family: 'Roboto';
+  color: #252E3A; }
 
 a {
   text-decoration: none; }
@@ -154,10 +155,10 @@ body.lock {
       width: 100%; } }
   @media screen and (min-width: 1126px) {
     .container {
-      width: 1126px; } }
+      max-width: 1126px; } }
   @media screen and (min-width: 1360px) {
     .container {
-      width: 1360px; } }
+      max-width: 1360px; } }
 
 .header {
   max-width: 1920px;
@@ -425,13 +426,14 @@ body.lock {
 .login {
   width: 100%;
   height: 100vh;
-  position: absolute;
-  top: -100vh;
+  position: fixed;
+  top: -110vh;
   left: 0;
   background: #FFEEF5;
   -webkit-transition: .5s;
   -o-transition: .5s;
-  transition: .5s; }
+  transition: .5s;
+  z-index: 98; }
   .login-inner {
     width: 100%;
     margin: 0 auto;
@@ -611,3 +613,131 @@ body.lock {
       text-decoration: underline; }
 
 /* end login */
+.category {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: -110px;
+  margin-bottom: 70px; }
+  @media screen and (min-width: 1126px) {
+    .category {
+      margin-bottom: 100px; } }
+  @media screen and (min-width: 1360px) {
+    .category {
+      margin-bottom: 125px; } }
+  .category-item {
+    width: 33.33333%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    .category-item:last-child {
+      display: none; }
+    @media screen and (max-width: 375px) {
+      .category-item {
+        width: 50%;
+        padding: 58px 20px 30px 20px; } }
+    @media screen and (max-width: 375px) {
+      .category-item:last-child {
+        display: block; } }
+    @media screen and (min-width: 376px) and (max-width: 768px) {
+      .category-item:nth-child(3) {
+        width: 100%; } }
+    @media screen and (min-width: 376px) {
+      .category-item {
+        width: 50%;
+        padding: 58px 20px 30px 20px; } }
+    @media screen and (min-width: 769px) {
+      .category-item {
+        width: 33.33333%;
+        padding: 58px 20px 30px 20px; } }
+    @media screen and (min-width: 1126px) {
+      .category-item {
+        padding: 108px 20px 50px 20px; } }
+    @media screen and (min-width: 1360px) {
+      .category-item {
+        padding: 130px 20px 50px 20px; } }
+    .category-item:nth-child(1) {
+      background: #F6F6FB; }
+    .category-item:nth-child(2) {
+      background: #FAFAFA; }
+    .category-item:nth-child(3) {
+      background: #FFEEF5; }
+    .category-item:nth-child(4) {
+      background: #F6F6FB; }
+    .category-item__image {
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      /*img {
+
+				@media screen and (min-width: 1126px) {
+					width: 139px;
+					height: 139px;
+				}
+
+				@media screen and (min-width: 1360px) {
+					width: 169px;
+					height: 167px;
+				}
+	
+			}*/ }
+      @media screen and (min-width: 320px) {
+        .category-item__image {
+          margin-bottom: 20px; } }
+      @media screen and (min-width: 769px) {
+        .category-item__image {
+          margin-bottom: 30px; } }
+      @media screen and (min-width: 1126px) {
+        .category-item__image {
+          margin-bottom: 42px; } }
+      @media screen and (min-width: 1360px) {
+        .category-item__image {
+          margin-bottom: 70px; } }
+    .category-item__name {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+      text-align: center;
+      font-weight: 400;
+      font-size: 11px;
+      line-height: 20px;
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      color: #252E3A; }
+      @media screen and (max-width: 375px) {
+        .category-item__name {
+          line-height: 16px; } }
+    .category-item__price {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-flex: 0;
+          -ms-flex: 0 0 100%;
+              flex: 0 0 100%;
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 20px;
+      color: #252E3A;
+      text-align: center; }
