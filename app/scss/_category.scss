@@ -1,17 +1,9 @@
+
 .category {
 
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: -110px;
-	margin-bottom: 70px;
-
-	@media screen and (min-width: 1126px) {
-		margin-bottom: 100px;
-	}
-
-	@media screen and (min-width: 1360px) {
-		margin-bottom: 125px;
-	}
 
 	&-item {
 
