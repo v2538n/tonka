@@ -136,6 +136,17 @@ body.lock {
 }
 
 .section-3 {
+
+	margin-bottom: 250px;
+
+	@media screen and (max-width: 1360px) {
+		margin-bottom: 270px;
+	}
+
+	@media screen and (max-width: 1125px) {
+		margin-bottom: 80px;
+	}
+
 	.category {
 
 		@media screen and (max-width: 1125px) {
@@ -152,6 +163,25 @@ body.lock {
 	}
 }
 
+.section-4 {
+
+	&__text {
+		max-width: 750px;
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 30px;
+
+		@media screen and (max-width: 1160px) {
+			padding: 0 20px;
+			margin-bottom: 30px;
+		}
+
+		@media screen and (min-width: 1161px) {
+			margin-bottom: 50px;
+		}
+	}
+}
+
 
 @import "header";
 @import "logo";
@@ -161,3 +191,4 @@ body.lock {
 @import "login";
 @import "category";
 @import "steps";
+@import "userpic";
