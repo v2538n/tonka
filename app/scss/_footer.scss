@@ -1,0 +1,136 @@
+.footer {
+	padding: 50px 0 500px 0;
+	position: relative;
+
+	@media screen and (max-width: 1160px) {
+		padding: 40px 20px 250px 20px;
+	}
+
+	@media screen and (max-width: 768px) {
+		display: flex;
+		flex-direction: column;
+	} 
+
+	&__top-line {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 30px;
+
+		@media screen and (max-width: 768px) {
+			display: block;
+			margin-bottom: 20px;
+		} 
+	}
+
+	&-nav {
+		display: flex;
+
+		@media screen and (max-width: 768px) {
+			flex-direction: column;
+			margin-bottom: 20px;
+		} 
+
+		&__item {
+			padding: 15px 0;
+			margin-right: 15px;
+			text-transform: uppercase;
+			font-weight: 500;
+			font-size: 11px;
+			line-height: 30px;
+
+			&:hover {
+				text-decoration: underline;
+			}
+
+			@media screen and (max-width: 768px) {
+				width: 100%;
+				margin-bottom: 3px;
+				font-size: 12px;
+				padding: 0;
+			} 
+		}
+	}
+
+	&-social {
+		display: flex;
+		align-items: center;
+
+		@media screen and (max-width: 768px) {
+			position: absolute;
+			top: 320px;
+			left: 0px;
+		} 
+
+		&__item {
+			width: 22px;
+			height: 22px;
+			margin-left: 20px;
+			display: block; 
+
+			&--phone {
+				background: url('../images/dest/icons/phone.svg') no-repeat center;
+			}
+
+			&--insta {
+				background: url('../images/dest/icons/insta.svg') no-repeat center;
+			}
+
+			&--fb {
+				background: url('../images/dest/icons/fb.svg') no-repeat center;
+			}
+
+			@media screen and (max-width: 768px) {
+
+				width: 32px;
+				height: 32px;
+				margin-left: 0px;
+				margin-right: 22px;
+
+				&--phone {
+					background: url('../images/dest/icons/phone_large.svg') no-repeat center;
+				}
+
+				&--insta {
+					background: url('../images/dest/icons/insta_large.svg') no-repeat center;
+				}
+
+				&--fb {
+					background: url('../images/dest/icons/fb_large.svg') no-repeat center;
+				}
+			}
+		}
+	}
+
+	&-contacts {
+
+		margin-bottom: 40px;
+
+		@media screen and (max-width: 768px) {
+			margin-bottom: 4px;
+		} 
+
+		&__item {
+			display: block;
+			margin-bottom: 4px;
+			font-weight: 300;
+			font-size: 11px;
+			line-height: 20px;
+
+			@media screen and (max-width: 768px) {
+				font-size: 12px;
+				line-height: 22px;
+			}
+		}
+	}
+
+	&-copyright {
+		font-weight: 300;
+		font-size: 11px;
+		line-height: 22px;
+
+		@media screen and (max-width: 768px) {
+			font-size: 12px;
+			line-height: 22px;
+		}
+	}
+}
