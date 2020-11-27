@@ -80,6 +80,11 @@
 			margin-left: 20px;
 			display: block; 
 
+			&:hover {
+				transform: scale(1.4);
+				transition: .3s;
+			}
+
 			&--phone {
 				background: url('../images/dest/icons/phone.svg') no-repeat center;
 			}

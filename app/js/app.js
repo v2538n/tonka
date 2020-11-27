@@ -192,23 +192,46 @@
 
 		let 
 			colorpicItem = $('.colorpic').find('.colorpic-list__item'),
-			catalogItem  = $('catalog-list__item'),
-			pickedColor  = new Array();
+			catalogItem  = $('.catalog-list__item'),
+			pickedColor  = [];
 
 
-		colorpicItem.on('click', function(e){
-			$(this).addClass('active');
+		colorpicItem.on('click', function(){
+			if($(this).hasClass('active')) {
+				$(this).removeClass('active');
+			} else {
+				$(this).addClass('active');
+			}
+			pickedColor = getPicked();
+			selectPicked(pickedColor);
 		});
 
-		function showPicked(){
+		function getPicked(){
 			colorpicItem.each(function(){
 				if($(this).hasClass('active')) {
-						
+					pickedColor[$(this).attr('data')] = true; 
+				} else {
+					pickedColor[$(this).attr('data')] = false;
+				}
+			});
+
+			return pickedColor;
+		}
+
+		function selectPicked(pickedColor){
+			catalogItem.each(function(){
+				if(pickedColor[$(this).attr('data')]){
+					$(this).show().css({'opacity': 1});
+				} else {
+					$(this).hide().css({'opacity': 0});
 				}
 			});
 		}
 
-		
-
+		$(window).on('load', function(){
+			pickedColor = getPicked();
+			selectPicked(pickedColor);
+		});
+	
 	});
 })(jQuery);

@@ -1380,6 +1380,13 @@ body.lock {
       height: 22px;
       margin-left: 20px;
       display: block; }
+      .footer-social__item:hover {
+        -webkit-transform: scale(1.4);
+            -ms-transform: scale(1.4);
+                transform: scale(1.4);
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s; }
       .footer-social__item--phone {
         background: url("../images/dest/icons/phone.svg") no-repeat center; }
       .footer-social__item--insta {
@@ -1488,4 +1495,7 @@ body.lock {
     height: 100px;
     width: 100px;
     margin-bottom: 20px;
-    margin-right: 20px; }
+    margin-right: 20px;
+    -webkit-transition: 2s;
+    -o-transition: 2s;
+    transition: 2s; }
