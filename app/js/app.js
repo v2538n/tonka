@@ -204,6 +204,22 @@
 			}
 			pickedColor = getPicked();
 			selectPicked(pickedColor);
+
+			pickedColorArray = Object.values(pickedColor);
+
+			if($.inArray(true, pickedColorArray) != -1) {
+				console.log($.inArray(true, pickedColorArray));
+				
+			} else {
+				colorpicItem.addClass('active');
+				catalogItem.addClass('active');
+				pickedColor = getPicked();
+				selectPicked(pickedColor);
+			}
+
+			//const result = Object.keys(pickedColor).map((value, index) => Object.values(pickedColor[value]));
+			
+
 		});
 
 		function getPicked(){
@@ -215,10 +231,12 @@
 				}
 			});
 
+
 			return pickedColor;
 		}
 
 		function selectPicked(pickedColor){
+
 			catalogItem.each(function(){
 				if(pickedColor[$(this).attr('data')]){
 					$(this).show().css({'opacity': 1});
@@ -226,11 +244,23 @@
 					$(this).hide().css({'opacity': 0});
 				}
 			});
+
 		}
 
 		$(window).on('load', function(){
 			pickedColor = getPicked();
-			selectPicked(pickedColor);
+
+			pickedColorArray = Object.values(pickedColor);
+
+			if($.inArray(true, pickedColorArray) != -1) {
+				selectPicked(pickedColor);
+				
+			} else {
+				colorpicItem.addClass('active');
+				catalogItem.addClass('active');
+				pickedColor = getPicked();
+				selectPicked(pickedColor);
+			}
 		});
 	
 	});

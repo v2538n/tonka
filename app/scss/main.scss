@@ -514,6 +514,30 @@ body.lock {
 				height: 30px;
 				margin-right: 5px;
 				cursor: pointer;
+				position: relative;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border: 1px solid #aaa;
+
+				&::after {
+					content: '';
+					width: 0px;
+					height: 0px;
+					border: 5px solid #fff;
+					border-radius: 50%;
+					transition: .3s;
+
+				}
+
+				&.active::after {
+					content: '';
+					width: 15px;
+					height: 15px;
+					border: 5px solid #fff;
+					border-radius: 50%;
+					background: #333;
+				}
 			}
 		} 
 
