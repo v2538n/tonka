@@ -2,6 +2,7 @@
 	padding: 50px 0 500px 0;
 	position: relative;
 
+
 	@media screen and (max-width: 1160px) {
 		padding: 40px 20px 250px 20px;
 	}
@@ -10,6 +11,18 @@
 		display: flex;
 		flex-direction: column;
 	} 
+
+	.container {
+		@media screen and (min-width: 1126px) and (max-width: 1159px) {
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+
+		@media screen and (min-width: 1360px) and (max-width: 1400px) {
+			padding-left: 12px;
+			padding-right: 12px;
+		}
+	}
 
 	&__top-line {
 		display: flex;

@@ -160,5 +160,55 @@
 	*/
 
 
+
+	/* ---------- catalog-menu ---------- */
+
+		
+		let menu                 = $('.catalog-menu'),
+			container            = menu.parent(),
+			containerYOffset     = container.offset().top,
+			stopPoint            = ($('.footer').offset().top) - 300;
+
+			/*console.log('menu ' + menu);
+			console.log('container ' + container);
+			console.log('containerYOffset ' + containerYOffset);
+			console.log('stopPoint ' + stopPoint);*/
+
+		$(window).on('scroll', function(e){
+			
+			if(pageYOffset > containerYOffset && pageYOffset < stopPoint) {
+				menu.addClass('fixed');
+				menu.removeClass('stopPoint');
+			} else if(pageYOffset > containerYOffset && pageYOffset > stopPoint){
+				menu.addClass('stopPoint');
+			} else if(pageYOffset < containerYOffset){
+				menu.removeClass('fixed');
+			}
+
+		});
+
+
+	/* ---------- colorpic ---------- */	
+
+		let 
+			colorpicItem = $('.colorpic').find('.colorpic-list__item'),
+			catalogItem  = $('catalog-list__item'),
+			pickedColor  = new Array();
+
+
+		colorpicItem.on('click', function(e){
+			$(this).addClass('active');
+		});
+
+		function showPicked(){
+			colorpicItem.each(function(){
+				if($(this).hasClass('active')) {
+						
+				}
+			});
+		}
+
+		
+
 	});
 })(jQuery);
