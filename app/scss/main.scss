@@ -546,12 +546,12 @@ body.lock {
 	.catalog-list {
 		display: flex;
 		flex-wrap: wrap;
+		justify-content: space-between;
 
 		&__item {
-			height: 100px;
-			width: 100px;
+			width: 23%;
 			margin-bottom: 20px;
-			margin-right: 20px;
+			/*margin-right: 20px;*/
 			transition: 2s;
 		}
 	}

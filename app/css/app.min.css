@@ -1517,12 +1517,14 @@ body.lock {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
   .page-list .catalog-list__item {
-    height: 100px;
-    width: 100px;
+    width: 23%;
     margin-bottom: 20px;
-    margin-right: 20px;
+    /*margin-right: 20px;*/
     -webkit-transition: 2s;
     -o-transition: 2s;
     transition: 2s; }

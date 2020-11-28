@@ -191,24 +191,42 @@
 	/* ---------- colorpic ---------- */	
 
 		let 
-			colorpicItem = $('.colorpic').find('.colorpic-list__item'),
-			catalogItem  = $('.catalog-list__item'),
-			pickedColor  = [];
+			colorpicItem      = $('.colorpic').find('.colorpic-list__item'),
+			catalogItem       = $('.catalog-list__item'),
+			catalogItemWidth  = catalogItem.width(),
+			catalogItemHeight = catalogItemWidth,
+			pickedColor       = [];
+
+
+
+		function getOffset(){
+			let itemsXOffset = ($(catalogItem[1]).offset().left - $(catalogItem[0]).offset().left) - $(catalogItem[0]).outerWidth();
+			catalogItem.css({'margin-bottom':itemsXOffset});
+		}
+
+		getOffset();
+
+
+		function goSize(){
+			catalogItem.height(catalogItemHeight);	
+		}
 
 
 		colorpicItem.on('click', function(){
+
 			if($(this).hasClass('active')) {
 				$(this).removeClass('active');
 			} else {
 				$(this).addClass('active');
 			}
+			
 			pickedColor = getPicked();
 			selectPicked(pickedColor);
 
 			pickedColorArray = Object.values(pickedColor);
 
 			if($.inArray(true, pickedColorArray) != -1) {
-				console.log($.inArray(true, pickedColorArray));
+				selectPicked(pickedColor);
 				
 			} else {
 				colorpicItem.addClass('active');
@@ -223,6 +241,7 @@
 		});
 
 		function getPicked(){
+
 			colorpicItem.each(function(){
 				if($(this).hasClass('active')) {
 					pickedColor[$(this).attr('data')] = true; 
@@ -231,7 +250,6 @@
 				}
 			});
 
-
 			return pickedColor;
 		}
 
@@ -239,22 +257,36 @@
 
 			catalogItem.each(function(){
 				if(pickedColor[$(this).attr('data')]){
-					$(this).show().css({'opacity': 1});
+					$(this).stop();
+					$(this).animate({opacity: 1}, 100, function(){
+						let
+							elemWidth  = $(this).siblings().width(),
+							elemMargin = $(this).siblings().css('margin-right');
+
+						$(this).animate({'width': elemWidth}, 100, function(){
+							$(this).animate({'margin-right': elemMargin});
+						});
+					});
 				} else {
-					$(this).hide().css({'opacity': 0});
+					$(this).stop();
+					$(this).animate({opacity: 0}, 100, function(){
+						$(this).animate({'width': 0}, 100, function(){
+							$(this).animate({'margin-right': 0}, 100);
+						});
+					});
 				}
 			});
-
 		}
 
 		$(window).on('load', function(){
+
 			pickedColor = getPicked();
+			goSize();
 
 			pickedColorArray = Object.values(pickedColor);
 
 			if($.inArray(true, pickedColorArray) != -1) {
 				selectPicked(pickedColor);
-				
 			} else {
 				colorpicItem.addClass('active');
 				catalogItem.addClass('active');
