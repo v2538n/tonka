@@ -164,52 +164,77 @@
 	/* ---------- catalog-menu ---------- */
 
 		
+		let 
+			wW = $(window).width(),
+			wH = $(window).height();
+
 		let menu                 = $('.catalog-menu'),
 			container            = menu.parent(),
 			containerYOffset     = container.offset().top,
-			stopPoint            = ($('.footer').offset().top) - 300;
+			containerHeight      = $('.main').height(),
+			stopPoint            = ($('.footer').offset().top) - (wH / 3);
+		/*	stopPoint            = (containerHeight + containerYOffset) - (wH / 3);*/
+
 
 			/*console.log('menu ' + menu);
 			console.log('container ' + container);
 			console.log('containerYOffset ' + containerYOffset);
 			console.log('stopPoint ' + stopPoint);*/
 
-		$(window).on('scroll', function(e){
-			
+		function fixedMenu(){
 			if(pageYOffset > containerYOffset && pageYOffset < stopPoint) {
-				menu.addClass('fixed');
-				menu.removeClass('stopPoint');
+				container.addClass('fixed');
+				container.removeClass('stopPoint');
 			} else if(pageYOffset > containerYOffset && pageYOffset > stopPoint){
-				menu.addClass('stopPoint');
+				container.addClass('stopPoint');
 			} else if(pageYOffset < containerYOffset){
-				menu.removeClass('fixed');
+				container.removeClass('fixed');
 			}
+		}
 
+		$(window).on('scroll', function(e){
+
+			fixedMenu();
+
+			/*console.log(stopPoint);*/			
 		});
 
+		$(window).on('resize', function(){
+			/*stopPoint = (containerHeight + containerYOffset);*/
+			stopPoint = ($('.footer').offset().top) - (wH / 3);
+		});
+
+		
 
 	/* ---------- colorpic ---------- */	
 
 		let 
-			colorpicItem      = $('.colorpic').find('.colorpic-list__item'),
-			catalogItem       = $('.catalog-list__item'),
+			colorpicItem      = $('.colorpic').find('.colorpic-list-item'),
+			catalogItem       = $('.catalog-list-item'),
 			catalogItemWidth  = catalogItem.width(),
 			catalogItemHeight = catalogItemWidth,
 			pickedColor       = [];
 
 
 
-		function getOffset(){
-			let itemsXOffset = ($(catalogItem[1]).offset().left - $(catalogItem[0]).offset().left) - $(catalogItem[0]).outerWidth();
-			catalogItem.css({'margin-bottom':itemsXOffset});
-		}
+		/*
 
-		getOffset();
+			function getOffset(){
+				let itemsXOffset = (
+					$(catalogItem[1]).offset().left - $(catalogItem[0]).offset().left
+				) - $(catalogItem[0]).outerWidth();
+
+				catalogItem.css({'margin-bottom':itemsXOffset});
+			}
+
+			getOffset();
 
 
-		function goSize(){
-			catalogItem.height(catalogItemHeight);	
-		}
+			function goSize(){
+				catalogItem.height(catalogItemHeight);	
+			}
+
+		*/
 
 
 		colorpicItem.on('click', function(){
@@ -220,25 +245,28 @@
 				$(this).addClass('active');
 			}
 			
-			pickedColor = getPicked();
-			selectPicked(pickedColor);
-
+			pickedColor      = getPicked();
 			pickedColorArray = Object.values(pickedColor);
 
 			if($.inArray(true, pickedColorArray) != -1) {
 				selectPicked(pickedColor);
-				
+
+				/*stopPoint = ($('.footer').offset().top) - (wH / 3);*/
 			} else {
-				colorpicItem.addClass('active');
-				catalogItem.addClass('active');
-				pickedColor = getPicked();
-				selectPicked(pickedColor);
+				catalogItem.removeClass('active disabled');
 			}
 
-			//const result = Object.keys(pickedColor).map((value, index) => Object.values(pickedColor[value]));
+			if($.inArray(false, pickedColorArray) === -1) {
+				catalogItem.removeClass('active disabled');
+			}
 			
 
 		});
+
+	/* Перебираем колорпики,
+		если есть класс актив - добавляем в массив выбранных элементов
+		pickedColor[color] = true/false.
+	*/
 
 		function getPicked(){
 
@@ -253,47 +281,52 @@
 			return pickedColor;
 		}
 
+
+	/* Перебираем элементы списка каталога,
+		атрибут data="color" проверяем в массиве отмеченных колорпиков,
+		если значение для него равно true, то отображаем соответствующие элементы
+		из списка каталога, иначе - скрываем.
+		
+	*/
+
 		function selectPicked(pickedColor){
 
 			catalogItem.each(function(){
 				if(pickedColor[$(this).attr('data')]){
-					$(this).stop();
-					$(this).animate({opacity: 1}, 100, function(){
-						let
-							elemWidth  = $(this).siblings().width(),
-							elemMargin = $(this).siblings().css('margin-right');
-
-						$(this).animate({'width': elemWidth}, 100, function(){
-							$(this).animate({'margin-right': elemMargin});
-						});
-					});
+					$(this).removeClass('disabled').addClass('active');
 				} else {
-					$(this).stop();
-					$(this).animate({opacity: 0}, 100, function(){
-						$(this).animate({'width': 0}, 100, function(){
-							$(this).animate({'margin-right': 0}, 100);
-						});
-					});
+					$(this).removeClass('active').addClass('disabled');
 				}
 			});
 		}
 
 		$(window).on('load', function(){
 
-			pickedColor = getPicked();
-			goSize();
+			//catalogItem.addClass('active');
 
-			pickedColorArray = Object.values(pickedColor);
+			/*//pickedColor = getPicked();
+
+			//pickedColorArray = Object.values(pickedColor);
 
 			if($.inArray(true, pickedColorArray) != -1) {
 				selectPicked(pickedColor);
 			} else {
-				colorpicItem.addClass('active');
+				//colorpicItem.addClass('active');
 				catalogItem.addClass('active');
-				pickedColor = getPicked();
+				//pickedColor = getPicked();
 				selectPicked(pickedColor);
-			}
+			}*/
+
 		});
+
+		/*$(window).on('resize', function(){
+			setTimeout(function(){
+				let catalogConteinerWidth = catalogList.width(),
+				catalogItemWidth      = catalogConteinerWidth / 4.3;
+
+				catalogItem.width(catalogItemWidth);
+			}, 0);
+		});*/
 	
 	});
 })(jQuery);

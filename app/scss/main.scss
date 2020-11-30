@@ -460,14 +460,16 @@ body.lock {
 
 		&__left-side {
 			flex: 0 0 400px;
-			min-height: 250px;
-			background: #f9f9f9;
+			min-height: 100vh;
+			/*background: #f9f9f9;*/
+			border-bottom: 1px solid #222;
 		}
 
 		&__right-side {
 			flex: 1;
-			min-height: 900px;
-			background: #f5f5f5;
+			min-height: 90vh;
+			/*background: #f5f5f5;*/
+			border-bottom: 1px solid #222;
 		}
 	}
 
@@ -476,16 +478,7 @@ body.lock {
 		margin-bottom: 30px;
 		transition: .5s;
 		position: relative;
-		top: 0;
 
-		&.fixed {
-			position: fixed;
-			top: 50px;
-		}
-
-		&.stopPoint {
-			top: -50vh;
-		}
 
 		&__item {
 			font-size: 16px;
@@ -509,7 +502,7 @@ body.lock {
 		&-list {
 			display: flex;
 
-			&__item {
+			&-item {
 				width: 30px;
 				height: 30px;
 				margin-right: 5px;
@@ -543,16 +536,110 @@ body.lock {
 
 	}
 
-	.catalog-list {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-between;
 
-		&__item {
-			width: 23%;
-			margin-bottom: 20px;
-			/*margin-right: 20px;*/
-			transition: 2s;
+  	@-webkit-keyframes show {
+    	0% {opacity: 0;} 
+    	100% {opacity: 1;}
+  	 }
+
+	.catalog-list {
+		/*display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;*/
+		padding-top: 20px;
+
+
+		&__section {
+			margin-bottom: 140px;
+		}
+
+
+		&__title {
+			font-weight: 200;
+			font-size: 33px;
+			line-height: 38px;
+			margin-bottom: 22px;
+		}
+
+		&-items {
+			display: flex;
+			flex-wrap: wrap;
+		}
+
+		&-item {
+			width: 50%;
+			padding: 120px 118px 50px 118px;
+			animation: hide .4s ease .1s forwards;
+
+			&.active {
+				flex: 1;
+				display: block;
+				//opacity: 1;
+				animation: show .4s ease .1s forwards;
+			}
+
+			&--large {
+				flex: 0 0 100%!important;
+			}
+
+			&.disabled {
+				display: none;
+				opacity: 0;
+			}
+
+			&--large {
+				width: 100%;
+			}
+
+			&--mobile {
+				@media screen and (min-width: 376px) {
+					display: none;
+				}
+			}
+
+			&--desktop {
+				@media screen and (max-width: 375px) {
+					display: none;
+				}
+			}
+
+			&__image {
+				margin-bottom: 60px;
+				text-align: center;
+			}
+
+			&__name {
+				font-weight: 400;
+				font-size: 11px;
+				line-height: 20px;
+				text-transform: uppercase;
+				text-align: center;
+				margin-bottom: 3px;
+			}
+
+			&__price {
+				font-weight: 300;
+				font-size: 11px;
+				line-height: 20px;
+				text-align: center;
+			}
 		}
 	}
+}
+
+.fixed-container {
+
+	position: relative;
+	top: 0;
+	transition: .5s;
+
+	&.fixed {
+		position: fixed;
+		top: 50px;
+	}
+
+	&.stopPoint {
+		top: -50vh;
+	}
+		
 }
